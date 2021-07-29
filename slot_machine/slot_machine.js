@@ -10,12 +10,16 @@ class SlotMachine extends React.Component {
     const slotTwo = getRandom(slots);
     const slotThree = getRandom(slots);
     const winner = (slotOne === slotTwo) && (slotTwo === slotThree);
-
+    const colors = { fontSize: '50px'};
     return (
-      <div>
+      <div className="SlotMachine">
         <p>Here is your luck:</p>
-        <p>{slotOne} - {slotTwo} - {slotThree}</p>
-        <p>{winner ? "You won" : "You lost"}</p>
+        <p style={colors}>
+          {slotOne} - {slotTwo} - {slotThree}
+        </p>
+        <p className={winner ? "win" : "lose"}>
+          {winner ? "You won" : "You lost"}
+        </p>
         {
           winner &&
           <img src="https://media.giphy.com/media/917Ve5cLpoB3Nhd1xh/giphy.gif"/>
