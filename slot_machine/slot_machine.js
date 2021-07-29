@@ -9,19 +9,17 @@ class SlotMachine extends React.Component {
     const slotOne = getRandom(slots);
     const slotTwo = getRandom(slots);
     const slotThree = getRandom(slots);
-    let msg;
-    if (slotOne === slotTwo && slotTwo === slotThree) {
-      msg =
-        <div>
-          <p> Wouhou you won! </p>
-          <img src="https://media.giphy.com/media/917Ve5cLpoB3Nhd1xh/giphy.gif" />
-        </div>
-    }
+    const winner = (slotOne === slotTwo) && (slotTwo === slotThree);
+
     return (
       <div>
         <p>Here is your luck:</p>
         <p>{slotOne} - {slotTwo} - {slotThree}</p>
-        {msg}
+        <p>{winner ? "You won" : "You lost"}</p>
+        {
+          winner &&
+          <img src="https://media.giphy.com/media/917Ve5cLpoB3Nhd1xh/giphy.gif"/>
+         }
       </div>
     );
   }
