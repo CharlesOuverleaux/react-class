@@ -1,0 +1,11 @@
+.winner{
+  background-color: lightgreen;
+  padding: 5px;
+  margin: 5px;
+}
+
+.loser{
+  background-color: lightsalmon;
+  padding: 5px;
+  margin: 5px;
+}

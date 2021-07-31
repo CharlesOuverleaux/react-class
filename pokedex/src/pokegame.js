@@ -1,39 +1,32 @@
 import React, { Component } from 'react';
 import pokemons from './pokemons';
-import Pokecard from './pokecard';
+import PokeDeck from './pokedeck';
 
-function getRandom(array, n) {
+const getRandom = (array, n) => {
   return array.sort(() => Math.random() - Math.random()).slice(0, n)
 };
+
+const getTotalExp = (array) => {
+  let sum = 0;
+  array.forEach(element => {
+    sum += element.base_experience;
+  });
+  return sum;
+}
 
 class PokeGame extends Component {
   render() {
     const handOne = getRandom(pokemons, 4);
     const handTwo = getRandom(pokemons, 4);
+    const totalHandOne = getTotalExp(handOne);
+    const totalHandTwo = getTotalExp(handTwo);
+    const winnerOne = totalHandOne > totalHandTwo;
+    const winnerTwo = totalHandOne < totalHandTwo;
     return (
       <div className="PokeGame">
-        <h2>Sacha's hand</h2>
-        <p>Total: </p>
-        <div className="Cards">
-          {handOne.map(p =>
-            <Pokecard
-              id={p.id}
-              name={p.name}
-              type={p.type}
-              exp={p.base_experience} />
-          )}
-        </div>
-        <h2>Juju's hand</h2>
-        <p>Total: </p>
-        <div className="Cards">
-          {handTwo.map(p =>
-            <Pokecard
-              id={p.id}
-              name={p.name}
-              type={p.type}
-              exp={p.base_experience} />
-          )}
-        </div>
+        <h2>{winnerOne ? "Sacha won" : "Flora won"}</h2>
+        <PokeDeck hand={handOne} player="Sacha" score={totalHandOne} winner={winnerOne}/>
+        <PokeDeck hand={handTwo} player="Flora" score={totalHandTwo} winner={winnerTwo}/>
       </div>
     )
   }
