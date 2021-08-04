@@ -3,10 +3,9 @@ import "./die.css"
 
 class Die extends Component {
   render() {
-    const fa = `fas fa-dice-${this.props.n} fa-7x`
     return (
       <div className="Die">
-        <i class={fa}></i>
+        <i class={`fas fa-dice-${this.props.n} fa-7x ${this.props.rolling ? "shaking" : ""}`}></i>
       </div>
     );
   }
