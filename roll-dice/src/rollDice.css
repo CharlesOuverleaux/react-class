@@ -1,0 +1,8 @@
+.rollDice {
+  text-align: center;
+}
+
+.Dices {
+  display: flex;
+  justify-content: space-evenly;
+}

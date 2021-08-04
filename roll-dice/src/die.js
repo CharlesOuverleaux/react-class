@@ -6,7 +6,6 @@ class Die extends Component {
     const fa = `fas fa-dice-${this.props.n} fa-7x`
     return (
       <div className="Die">
-        <h1>This is a dice</h1>
         <i class={fa}></i>
       </div>
     );
