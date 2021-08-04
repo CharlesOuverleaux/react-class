@@ -12,10 +12,13 @@ class Clicker extends Component {
     this.setState({ count: rand});
   };
   render () {
+    const btn = <button onClick={this.handleClick}>Click here for a new number</button>;
+    const winMsg = <h2>You won!</h2>
+    let win = this.state.count === 7;
     return (
       <div className="Clicker">
         <h1>Your number is: {this.state.count}</h1>
-        <button onClick={this.handleClick}>Click here for a new number</button>
+        { win ? winMsg : btn }
       </div>
     );
   }
