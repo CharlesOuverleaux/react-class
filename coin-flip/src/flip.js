@@ -5,12 +5,20 @@ import './flip.css';
 class Flip extends Component {
   constructor(props){
     super(props);
-    this.state = { flip: true }
+    this.state = { flip: true, counter: 0, heads: 0, tails: 0}
     this.handleClick = this.handleClick.bind(this)
   }
   getrndflip(){
     const arr = [true, false]
-    this.setState({ flip: arr[(Math.floor(Math.random() * 2))] })
+    const choice = arr[(Math.floor(Math.random() * 2))]
+    this.setState(st => {
+      return {
+        flip: choice,
+        counter: st.counter + 1,
+        heads: st.heads + (choice ? 1 : 0),
+        tails: st.tails + (choice ? 0 : 1)
+      }
+    })
   }
 
   handleClick(){
@@ -21,6 +29,7 @@ class Flip extends Component {
       <div className="Flip">
         <Coin flipResult={this.state.flip} />
         <button onClick={this.handleClick}>Flip me!</button>
+        <p>Played {this.state.counter} times. Heads: {this.state.heads} vs Tails: {this.state.tails}</p>
       </div>
     )
   }
