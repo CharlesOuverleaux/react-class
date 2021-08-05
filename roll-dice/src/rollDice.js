@@ -28,7 +28,11 @@ class RollDice extends Component {
       <button onClick={this.roll}>
         {this.state.rolling ? "Rolling..." : "Roll the dices!"}
       </button>
-    const msg = "You are in luck today! Bravo!"
+    const msg =
+            <div>
+              <h1>You won!</h1>
+              <img alt="win msg" src="https://media.giphy.com/media/jp7jSyjNNz2ansuOS8/giphy.gif" />
+            </div>
     let win = this.state.dice1 === this.state.dice2 && this.state.dice2 === this.state.dice3
     return (
       <div className="rollDice">
