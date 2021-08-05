@@ -1,11 +1,13 @@
 .Ball {
   background-color: orange;
   color: white;
+  font-weight: bold;
+  font-size: large;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3em;
+  margin: 1em;
 }
