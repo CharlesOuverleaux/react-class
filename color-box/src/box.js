@@ -1,0 +1,34 @@
+import React, { Component } from "react";
+import "./box.css";
+
+class Box extends Component {
+  static defaultProps = {
+    colors: ['#5aa9e6ff', '#7fc8f8ff', '#f9f9f9ff', '#ffe45eff', '#ff6392ff']
+  }
+  constructor(props) {
+    super(props)
+    this.state = {
+      color: '#5aa9e6ff'
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  getRndColor(arr){
+    this.setState(curState => ({
+      color: arr[Math.floor(Math.random() * arr.length)]
+    }))
+  }
+
+  handleClick(){
+    return this.getRndColor(this.props.colors);
+  }
+  render(){
+    return(
+      <div className="Box" style={{ backgroundColor: this.state.color }} onClick={this.handleClick}>
+        <h1>I'm a box</h1>
+      </div>
+    )
+  }
+}
+
+export default Box;
