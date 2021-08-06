@@ -1,11 +1,11 @@
 import './App.css';
-import Box from './box';
+import BoxContainer from './BoxContainer';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <Box />
+      <h1>Click it and see</h1>
+      <BoxContainer />
     </div>
   );
 }
