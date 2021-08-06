@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./box.css";
+import { choice } from "./helper";
 
 class Box extends Component {
   static defaultProps = {
@@ -13,14 +14,20 @@ class Box extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  getRndColor(arr){
+  getRndColor(){
+    let newColor;
+    // we do a while loop to avoid having twice the same color
+    do {
+        newColor = choice(this.props.colors);
+    } while (newColor === this.state.color)
+    // if the new color is different we set the state
     this.setState(curState => ({
-      color: arr[Math.floor(Math.random() * arr.length)]
+      color: newColor
     }))
   }
 
   handleClick(){
-    return this.getRndColor(this.props.colors);
+    return this.getRndColor();
   }
   render(){
     return(
