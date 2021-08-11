@@ -60,7 +60,7 @@ class Hangman extends Component {
 displayButtons () {
   const btn = <p className='Hangman-btns'>{this.generateButtons()}</p>;
   const lostMsg = <p className='Lost-msg'> Oh no you lost! The word was {this.state.answer}</p>;
-  const winMsg = <p lassName='Win-msg'> Yes! you won!</p>;
+  const winMsg = <p className='Win-msg'> Yes! you won!</p>;
   if (this.guessedWord().join('') === this.state.answer){
     return winMsg
   } else if (this.state.nWrong === this.props.maxWrong) {
@@ -79,11 +79,15 @@ displayButtons () {
     return (
       <div className='Hangman'>
         <h1>Hangman</h1>
-        <img src={this.props.images[this.state.nWrong]} />
-        <p>Number of wrong guesses: {this.state.nWrong}</p>
-        <p className='Hangman-word'>{this.guessedWord()}</p>
-        {this.displayButtons()}
-        <button className="Restart-btn" onClick={refreshPage}>Restart</button>
+        <div className='Game'>
+          <img src={this.props.images[this.state.nWrong]} />
+          <div className='Game-ctn'>
+            <p>Number of wrong guesses: {this.state.nWrong}</p>
+            <p className='Hangman-word'>{this.guessedWord()}</p>
+            {this.displayButtons()}
+          </div>
+        </div>
+        <button id="Restart-btn" onClick={refreshPage}>Restart</button>
       </div>
     );
   }
