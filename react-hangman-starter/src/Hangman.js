@@ -20,6 +20,7 @@ class Hangman extends Component {
     super(props);
     this.state = { nWrong: 0, guessed: new Set(), answer: randomWord() };
     this.handleGuess = this.handleGuess.bind(this);
+    this.resetGame = this.resetGame.bind(this);
   }
 
   /** guessedWord: show current-state of word:
@@ -57,25 +58,25 @@ class Hangman extends Component {
     ));
   }
 
-displayButtons () {
-  const btn = <p className='Hangman-btns'>{this.generateButtons()}</p>;
-  const lostMsg = <p className='Lost-msg'> Oh no you lost! The word was {this.state.answer}</p>;
-  const winMsg = <p className='Win-msg'> Yes! you won!</p>;
-  if (this.guessedWord().join('') === this.state.answer){
-    return winMsg
-  } else if (this.state.nWrong === this.props.maxWrong) {
-    return lostMsg
-  } else {
-    return btn
+  displayButtons () {
+    const btn = <p className='Hangman-btns'>{this.generateButtons()}</p>;
+    const lostMsg = <p className='Lost-msg'> Oh no you lost! The word was {this.state.answer}</p>;
+    const winMsg = <p className='Win-msg'> Yes! you won!</p>;
+    if (this.guessedWord().join('') === this.state.answer){
+      return winMsg
+    } else if (this.state.nWrong === this.props.maxWrong) {
+      return lostMsg
+    } else {
+      return btn
+    }
   }
-}
+
+  resetGame() {
+    this.setState({ nWrong: 0, guessed: new Set(), answer: randomWord()})
+  }
 
   /** render: render game */
   render() {
-
-    const refreshPage = () => {
-      window.location.reload();
-    }
     return (
       <div className='Hangman'>
         <h1>Hangman</h1>
@@ -87,7 +88,7 @@ displayButtons () {
             {this.displayButtons()}
           </div>
         </div>
-        <button id="Restart-btn" onClick={refreshPage}>Restart</button>
+        <button id="Restart-btn" onClick={this.resetGame}>Restart</button>
       </div>
     );
   }
