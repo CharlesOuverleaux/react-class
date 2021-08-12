@@ -81,7 +81,7 @@ class Hangman extends Component {
       <div className='Hangman'>
         <h1>Hangman</h1>
         <div className='Game'>
-          <img src={this.props.images[this.state.nWrong]} />
+          <img src={this.props.images[this.state.nWrong]} alt={'guesses ' + this.state.nWrong + '/6'} />
           <div className='Game-ctn'>
             <p>Number of wrong guesses: {this.state.nWrong}</p>
             <p className='Hangman-word'>{this.guessedWord()}</p>
