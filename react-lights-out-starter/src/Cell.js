@@ -19,7 +19,13 @@ class Cell extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.flipCellsAroundMe = this.flipCellsAroundMe.bind(this);
   }
+
+
+flipCellsAroundMe() {
+  return this.props.isLit ? this.props.isLit === false : this.props.isLit === false
+}
 
   handleClick(evt) {
     // call up to the board to flip cells around this cell
