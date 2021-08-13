@@ -1,8 +1,11 @@
 import './App.css';
+import BoxList from './BoxList';
 
 function App() {
   return (
     <div className="App">
+      <h1>Color Box Creator</h1>
+      <BoxList />
     </div>
   );
 }
