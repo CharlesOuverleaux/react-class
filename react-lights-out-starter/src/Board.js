@@ -82,18 +82,14 @@ class Board extends Component {
 
     // TODO: flip this cell and the cells around it
     // the one clicked by the user
-    flipCell(y,x);
-    // the one next to it one the right
-    flipCell(y, x + 1);
-    // the one next to it one the left
-    flipCell(y, x - 1);
-    // the one next to it one the up
-    flipCell(y + 1, x);
-    // the one next to it one the down
+    flipCell(y, x);// the one next to it one the right
+    flipCell(y, x + 1); // the one next to it one the left
+    flipCell(y, x - 1); // the one next to it one the up
+    flipCell(y + 1, x);// the one next to it one the down
     flipCell(y - 1, x);
     // win when every cell is turned off
     // TODO: determine is the game has been won
-
+    hasWon = board.every(row => row.every(cell => !cell));
     this.setState({board, hasWon});
   }
 
@@ -101,6 +97,9 @@ class Board extends Component {
   /** Render game board or winning message. */
 
   render() {
+    if (this.state.hasWon){
+      return <h1>You Won!</h1>
+    }
     let tblBoard = [];
     for (let y = 0; y < this.props.nrows; y++){
       let row = [];
