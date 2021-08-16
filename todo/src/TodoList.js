@@ -20,12 +20,21 @@ class TodoList extends Component {
     this.setState({ tasks: this.state.tasks.filter(task => task.id !== id) })
   }
 
+  edit(id, newTitle) {
+    let tasks = [...this.state.tasks];
+    let task = this.state.tasks.filter(task => task.id === id)
+    task[0].taskTitle = newTitle;
+    tasks.push(task)
+    this.setState({tasks});
+  }
+
   render() {
     const tasks = this.state.tasks.map(task => {
       return <Todo
                 taskTitle={task.taskTitle}
                 key={task.id}
                 removeTask={() => this.remove(task.id)}
+                editTask={() => this.edit(task.id, task.taskTitle)}
                 />
     })
     return (

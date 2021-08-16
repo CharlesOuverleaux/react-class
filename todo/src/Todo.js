@@ -8,7 +8,8 @@ class Todo extends Component {
       <div className="Todo">
         <p>{this.props.taskTitle}</p>
         <p>{this.props.id}</p>
-        <button onClick={this.props.removeTask}>X</button>
+        <button onClick={this.props.removeTask}>Edit</button>
+        <button onClick={this.props.editTask}>X</button>
       </div>
     )
   }
