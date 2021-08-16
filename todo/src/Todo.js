@@ -7,6 +7,8 @@ class Todo extends Component {
     return(
       <div className="Todo">
         <p>{this.props.taskTitle}</p>
+        <p>{this.props.id}</p>
+        <button onClick={this.props.removeTask}>X</button>
       </div>
     )
   }
