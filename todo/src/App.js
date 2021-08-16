@@ -1,5 +1,6 @@
 import './App.css';
 import Todo from './Todo';
+import NewTodoForm from './NewTodoForm';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Todo taskTitle='clean dishes'/>
       <Todo taskTitle='clean laundry'/>
       <Todo taskTitle='cook food'/>
+      <NewTodoForm />
     </div>
   );
 }
