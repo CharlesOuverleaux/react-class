@@ -20,7 +20,7 @@ class NewTodoForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const newTask = { ...this.state, id: uuidv4() }
+    const newTask = { ...this.state, id: uuidv4(), completed: false}
     this.props.createTask(newTask);
   }
 
@@ -28,8 +28,11 @@ class NewTodoForm extends Component {
     return(
       <div className='NewTodoForm'>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='taskTitle'></label>
+          <label htmlFor='taskTitle'>New task</label>
           <input
+            type='text'
+            id='taskTitle'
+            // this is the name we use for event.target.name
             name='taskTitle'
             value={this.state.taskTitle}
             onChange={this.handleChange}
