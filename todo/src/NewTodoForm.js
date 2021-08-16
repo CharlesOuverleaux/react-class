@@ -6,7 +6,7 @@ class NewTodoForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      taskName: ''
+      taskTitle: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -28,10 +28,10 @@ class NewTodoForm extends Component {
     return(
       <div className='NewTodoForm'>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor='taskName'></label>
+          <label htmlFor='taskTitle'></label>
           <input
-            name='taskName'
-            value={this.state.taskName}
+            name='taskTitle'
+            value={this.state.taskTitle}
             onChange={this.handleChange}
             placeholder="Add a new task...">
             </input>
