@@ -1,8 +1,6 @@
 .ScoreTable {
   display: flex;
-  flex-direction: column;
   font-size: 0.9rem;
-  width: 80%;
   background-color: white;
   padding: 1em;
 }
@@ -15,5 +13,6 @@
 
 .ScoreTable-section {
   vertical-align: top;
-  width: 100%;
+  margin: 1.5em;
+  /* width: 100%; */
 }
