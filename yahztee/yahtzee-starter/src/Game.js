@@ -27,7 +27,8 @@ class Game extends Component {
         largeStraight: undefined,
         yahtzee: undefined,
         chance: undefined
-      }
+      },
+      rolling: false
     };
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
@@ -41,8 +42,12 @@ class Game extends Component {
         st.locked[i] ? d : Math.ceil(Math.random() * 6)
       ),
       locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
-      rollsLeft: st.rollsLeft - 1
+      rollsLeft: st.rollsLeft - 1,
+      shaking: true
     }));
+    setTimeout(() => {
+      this.setState({ shaking: false })
+    }, 1000);
   }
 
   toggleLocked(idx) {
@@ -74,12 +79,12 @@ class Game extends Component {
       <div className='Game'>
         <header className='Game-header'>
           <h1 className='App-title'>Yahtzee!</h1>
-
           <section className='Game-dice-section'>
             <Dice
               dice={this.state.dice}
               locked={this.state.locked}
               handleClick={this.toggleLocked}
+              rolling={this.state.shaking}
             />
             <div className='Game-button-wrapper'>
               <button
