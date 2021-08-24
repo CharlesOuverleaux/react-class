@@ -3,6 +3,7 @@ import './Card.css';
 
 
 class Card extends Component {
+  // added to the constructor to avoid other cards to get new transform
   constructor(props) {
     super(props);
     let angle = Math.random() * 90 - 45;

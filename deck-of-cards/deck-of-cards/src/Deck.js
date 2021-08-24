@@ -24,7 +24,7 @@ class Deck extends Component {
     let end_game = this.state.remaining === 0;
     return (
       <div className='Deck'>
-        <h1>The deck of cards: {this.state.remaining}/52</h1>
+        <h1 className='neonText'>Pick a card: {this.state.remaining}/52</h1>
         {end_game ? <p>You have used all cards</p> : <button onClick={this.getCard}>Get a card!</button>}
         <div className='Card-area'>
         {cards}
