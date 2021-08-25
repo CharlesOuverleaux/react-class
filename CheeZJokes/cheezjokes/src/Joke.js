@@ -5,10 +5,10 @@ class Joke extends Component {
   render(){
     return(
       <div className='Joke'>
-        <i className="fa fa-arrow-up" aria-hidden="true"></i>
-        <p>20 votes</p>
-        <i class="fa fa-arrow-down" aria-hidden="true"></i>
-        <p>{this.props.text}</p>
+        <i className="fa fa-arrow-up" onClick={this.props.upVote}></i>
+        <span>{this.props.votes} votes</span>
+        <i className="fa fa-arrow-down" onClick={this.props.downVote}></i>
+        <span>{this.props.text}</span>
       </div>
     )
   }
