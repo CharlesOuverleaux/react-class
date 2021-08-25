@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './JokePage.css';
 import axios from 'axios';
+import Joke from './Joke';
 
 class JokePage extends Component {
   constructor(props){
@@ -17,7 +18,7 @@ class JokePage extends Component {
     }
   }
   render() {
-    let jokes = this.state.jokes;
+    let jokes = this.state.jokes.map(j => <Joke key={j} text={j}/>)
     return(
       <div className='JokePage'>
         <h2>I'm the JokePage</h2>
