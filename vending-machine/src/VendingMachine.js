@@ -1,8 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import './VendingMachine.css';
-import Bola from "./Bola";
-import Bolo from "./Bolo";
-import Nata from "./Nata";
 
 function VendingMachine() {
     return(
