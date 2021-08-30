@@ -1,6 +1,41 @@
 .Joke {
   display: flex;
-  justify-content: space-evenly;
-  border: solid 1px gray;
-  padding: 10Px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Spacer {
+  width: 50px;
+}
+
+
+.Votes {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.Votes:hover {
+  opacity: 1;
+}
+
+i {
+  margin: 10px;
+}
+
+.Arrow-up:hover {
+  color:green;
+}
+
+.Arrow-down:hover {
+  color:red;
+}
+
+.Joke-text {
+  font-style: italic;
 }
