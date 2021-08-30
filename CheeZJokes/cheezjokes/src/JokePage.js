@@ -28,7 +28,10 @@ class JokePage extends Component {
       jokes: st.jokes.map(j =>
         j.id === id ? {...j, votes: j.votes + delta} : j
         )
-    }));
+    }),
+    () =>
+      window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+    );
   }
   render() {
     let jokes = this.state.jokes.map(j => <Joke
