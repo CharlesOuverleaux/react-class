@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.active-link {
+  color: purple;
+  border-bottom: purple solid 1px;
+}
+  a {
+    text-decoration: none;
+    color: black;
+  }
