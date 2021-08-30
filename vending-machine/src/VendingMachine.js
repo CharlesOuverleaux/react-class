@@ -4,19 +4,12 @@ import Bola from "./Bola";
 import Bolo from "./Bolo";
 import Nata from "./Nata";
 
-class VendingMachine extends Component {
-  render() {
+function VendingMachine() {
     return(
       <div className='VendingMachine'>
         <h1>Vending Machine</h1>
-        <nav>
-          <Bola />
-          <Bolo />
-          <Nata />
-        </nav>
       </div>
     )
   }
-}
 
 export default VendingMachine;
