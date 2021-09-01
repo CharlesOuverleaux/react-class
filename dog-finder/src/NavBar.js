@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './NavBar.css';
+import { NavLink } from 'react-router-dom';
 
 class NavBar extends Component {
   render() {
@@ -7,13 +8,10 @@ class NavBar extends Component {
       <div className='NavBar'>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a className="navbar-brand" href="/Dogs">MyNextDoggo</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <ul class="navbar-nav mr-auto">
+          <ul className="navbar-nav mr-auto">
             {this.props.dogs.map(dog =>
-              <li class="nav-item active">
-                <a class="nav-link" href={`/Dogs/${dog.name}`}>{dog.name}</a>
+              <li className="nav-item active" key={dog.name}>
+                <NavLink className="nav-link" to={`/Dogs/${dog.name}`}>{dog.name}</NavLink>
               </li>
             )}
           </ul>
