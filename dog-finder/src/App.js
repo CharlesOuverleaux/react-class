@@ -6,6 +6,7 @@ import whiskey from './whiskey.jpg';
 import tubby from './tubby.jpg';
 import hazel from './hazel.jpg';
 import React, { Component } from 'react';
+import NavBar from './NavBar';
 
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
     }
     return (
       <div className='App'>
+        <NavBar dogs={this.props.dogs}/>
         <Switch>
           <Route exact path="/Dogs" render={() => <DogList dogs={this.props.dogs} />} />
           <Route exact path='/Dogs/:name' component={getDog} />

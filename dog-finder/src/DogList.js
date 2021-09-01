@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './DogList.css';
-import { Link } from 'react-router-dom';
 
 class DogList extends Component {
   render(){
@@ -8,7 +7,9 @@ class DogList extends Component {
         <div key={dog.name} className="DogList-Dog">
           <h2>{dog.name}</h2>
           <div className='img-container'>
-            <img alt={dog.name} src={dog.src}/>
+            <a href={`/Dogs/${dog.name}`}>
+              <img alt={dog.name} src={dog.src}/>
+            </a>
           </div>
         </div>
       )
