@@ -1,15 +1,21 @@
 import './App.css';
 import DogList from './DogList';
+import DogDetails from './DogDetails';
 import NavBar from './NavBar';
 import { Route, Switch } from 'react-router-dom';
+import whiskey from './whiskey.jpg';
+import tubby from './tubby.jpg';
+import hazel from './hazel.jpg';
+import React, { Component } from 'react';
 
-function App() {
-  App.defaultProps = {
+
+class App extends Component {
+  static defaultProps = {
     dogs: [
       {
         name: "Whiskey",
         age: 5,
-        src: 'whiskey',
+        src: whiskey,
         facts: [
           "Whiskey loves eating popcorn.",
           "Whiskey is a terrible guard dog.",
@@ -19,7 +25,7 @@ function App() {
       {
         name: "Hazel",
         age: 3,
-        src: 'hazel',
+        src: hazel,
         facts: [
           "Hazel has soooo much energy!",
           "Hazel is highly intelligent.",
@@ -29,7 +35,7 @@ function App() {
       {
         name: "Tubby",
         age: 4,
-        src: 'tubby',
+        src: tubby,
         facts: [
           "Tubby is not the brightest dog",
           "Tubby does not like walks or exercise.",
@@ -38,13 +44,21 @@ function App() {
       }
     ]
   }
-  return (
-    <div className='App'>
-      <Switch>
-        <Route exact path="/Dog" component={DogList} />
-      </Switch>
-    </div>
-  );
+  render(){
+    const getDog = props => {
+      let name = props.match.params.name;
+      let current_dog = this.props.dogs.find(dog => dog.name.toLowerCase() === name.toLowerCase());
+      return <DogDetails {...props} dog={current_dog}/>
+    }
+    return (
+      <div className='App'>
+        <Switch>
+          <Route exact path="/Dogs" render={() => <DogList dogs={this.props.dogs} />} />
+          <Route exact path='/Dogs/:name' component={getDog} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;

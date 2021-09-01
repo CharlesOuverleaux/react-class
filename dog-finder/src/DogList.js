@@ -4,10 +4,20 @@ import DogDetails from "./DogDetails";
 
 class DogList extends Component {
   render(){
+    const dogs = this.props.dogs.map(dog =>
+        <div key={dog.name} className="DogList-Dog">
+          <h2>{dog.name}</h2>
+          <div className='img-container'>
+            <img alt={dog.name} src={dog.src}/>
+          </div>
+        </div>
+      )
     return(
       <div className='DogList'>
-      <h1>I'm a DogList</h1>
-      <DogDetails />
+        <h1>Available dogs</h1>
+        <div className='DogList-Dogs'>
+          {dogs}
+        </div>
       </div>
     )
   }
