@@ -16,7 +16,6 @@ function App() {
         <Route exact path='/bolo' component={Bolo} />
         <Route exact path='/nata' component={Nata} />
       </Switch>
-
     </div>
   );
 }
