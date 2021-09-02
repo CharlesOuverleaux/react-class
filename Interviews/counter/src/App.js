@@ -2,22 +2,6 @@ import './App.css';
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
-
-// // Make a request for a user with a given ID
-// axios.get('/user?ID=12345')
-//   .then(function (response) {
-//     // handle success
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-//   .then(function () {
-//     // always executed
-//   });
-
 class App extends Component {
   constructor(props){
     super(props);
@@ -38,8 +22,6 @@ class App extends Component {
     const BASEURL = `https://randomuser.me/api?page=${pageNum}`;
     let api_call = await axios.get(BASEURL)
       .then(function (response) {
-        // handle success
-        console.log(response.data.results);
         return response.data.results;
       })
     this.setState({
@@ -66,7 +48,6 @@ class App extends Component {
       </div>
     )
   }
-
 }
 
 export default App;
