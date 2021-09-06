@@ -5,7 +5,6 @@ export default function Movie(){
   const [number, setNumber] = useState(1);
   const [movie, setMovie] = useState("") ;
   const movieNumbers = [1,2,3,4,5,6];
-  const [people, setPeople] = useState(0);
 
   useEffect(() => {
     async function getMovie() {
@@ -31,7 +30,6 @@ export default function Movie(){
       </select>
       <p>{movie.opening_crawl}</p>
       <ul>
-
       </ul>
     </div>
   );
