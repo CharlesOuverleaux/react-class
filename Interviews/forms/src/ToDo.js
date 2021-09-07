@@ -17,8 +17,8 @@ function ToDo(props){
         <IconButton>
           <EditIcon></EditIcon>
         </IconButton>
-        <IconButton>
-          <DeleteIcon></DeleteIcon>
+        <IconButton onClick={() => props.remove(props.id)}>
+          <DeleteIcon ></DeleteIcon>
         </IconButton>
       </ListItemSecondaryAction>
     </ListItem>

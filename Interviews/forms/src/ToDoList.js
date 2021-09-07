@@ -7,7 +7,7 @@ export default function ToDoList(props) {
     <Paper>
       <List>
         {props.todos.map(td =>
-            <ToDo todo={td} key={td.id}/>
+            <ToDo todo={td} key={td.id} id={td.id} remove={props.remove}/>
             )
         }
       </List>

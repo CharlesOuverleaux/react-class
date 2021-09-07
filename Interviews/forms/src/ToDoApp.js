@@ -4,20 +4,22 @@ import { Typography, Paper, AppBar, Toolbar, Grid } from '@material-ui/core';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
+import { v4 as uuidv4 } from 'uuid';
 
 
 export default function ToDoApp (){
-  const initialToDos = [
-    { id: 1, task:"wash bedsheets", complete: false},
-    { id: 2, task: "clean room", complete: false },
-    { id: 3, task: "go shopping", complete: true },
-    { id: 4, task: "go do something", complete: false }
-  ]
+  const initialToDos = []
   const [todos, setToDos] = useState(initialToDos);
 
   const addToDo = newToDoText => {
-    setToDos([...todos, {id: 5, task: newToDoText, complete: false}]);
+    setToDos([...todos, { id: uuidv4(), task: newToDoText, complete: false}]);
   }
+
+  const removeToDo = toDoId => {
+    const updatedToDo = todos.filter(todo => toDoId !== todo.id);
+    setToDos(updatedToDo);
+  }
+
   return(
     <Paper
       style={{
@@ -38,7 +40,7 @@ export default function ToDoApp (){
         <Grid container justifyContent='center' style={{marginTop:'1rem'}}>
           <Grid item xs={11} md={8} lg={4}>
             <ToDoForm addToDo={addToDo}/>
-            <ToDoList todos={todos} />
+            <ToDoList todos={todos} remove={removeToDo}/>
           </Grid>
         </Grid>
       </div>
