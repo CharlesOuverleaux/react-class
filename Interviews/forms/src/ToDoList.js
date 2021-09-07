@@ -6,10 +6,10 @@ export default function ToDoList(props) {
     <Paper>
       <List>
         {props.todos.map(td =>
-            <>
+            <div key={td.id}>
             <ListItem>{td.task}</ListItem>
             <Divider/>
-            </>
+            </div>
             )
         }
       </List>

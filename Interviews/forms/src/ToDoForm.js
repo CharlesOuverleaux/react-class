@@ -4,16 +4,22 @@ import useInputState from "./hooks/useInputState";
 import './ToDoForm.css';
 
 
-export default function ToDoForm(props){
-  const [value , handleChange, reset] = useInputState('');
+function ToDoForm({ addToDo }){
+  const [value , handleChange, reset] = useInputState("");
   return(
     <div className='ToDoForm'>
       <Paper>
-        <form>
-        <TextField value={value} onChange={handleChange}/>
-        <button onClick={reset}>Submit</button>
+        <form onSubmit={ e => {
+          // ADD THIS BEC FORM RELOADS BY DEFAULT, THAT WOULD CAUSE A RE-RENDER
+          e.preventDefault();
+          addToDo(value);
+          reset();
+        }}>
+          <TextField value={value} onChange={handleChange}/>
         </form>
       </Paper>
     </div>
   );
 }
+
+export default ToDoForm;

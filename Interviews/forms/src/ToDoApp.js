@@ -1,6 +1,6 @@
 import React, { useState }from "react";
 import "./ToDoApp.css";
-import { Typography, Paper, AppBar, Toolbar, Grid } from '@material-ui/core';
+import { Typography, Paper, AppBar, Toolbar } from '@material-ui/core';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
 
@@ -8,9 +8,14 @@ export default function ToDoApp (){
   const initialToDos = [
     { id: 1, task:"wash bedsheets", complete: false},
     { id: 2, task: "clean room", complete: false },
-    { id: 3, task: "go shopping", complete: false }
+    { id: 3, task: "go shopping", complete: false },
+    { id: 4, task: "go do something", complete: false }
   ]
-  const [todos, setTodos] = useState(initialToDos);
+  const [todos, setToDos] = useState(initialToDos);
+
+  const addToDo = newToDoText => {
+    setToDos([...todos, {id: 5, task: newToDoText, complete: false}]);
+  }
   return(
     <Paper
       style={{
@@ -27,8 +32,8 @@ export default function ToDoApp (){
         </Toolbar>
       </AppBar>
       <div className='Spacer'>
-        <ToDoForm test='Test'/>
-        <ToDoList todos={initialToDos} />
+        <ToDoForm addToDo={addToDo}/>
+        <ToDoList todos={todos} />
       </div>
     </Paper>
   );
