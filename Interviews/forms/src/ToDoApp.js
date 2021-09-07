@@ -3,12 +3,14 @@ import "./ToDoApp.css";
 import { Typography, Paper, AppBar, Toolbar, Grid } from '@material-ui/core';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
+
 
 export default function ToDoApp (){
   const initialToDos = [
     { id: 1, task:"wash bedsheets", complete: false},
     { id: 2, task: "clean room", complete: false },
-    { id: 3, task: "go shopping", complete: false },
+    { id: 3, task: "go shopping", complete: true },
     { id: 4, task: "go do something", complete: false }
   ]
   const [todos, setToDos] = useState(initialToDos);
@@ -28,11 +30,12 @@ export default function ToDoApp (){
       >
       <AppBar>
         <Toolbar color='primary' position='static' style={{ height:'64px'}}>
+          <PlaylistAddCheckIcon></PlaylistAddCheckIcon>
           <Typography color='inherit'>TO DO LIST</Typography>
         </Toolbar>
       </AppBar>
       <div className='Spacer'>
-        <Grid container justify='center' style={{marginTop:'1rem'}}>
+        <Grid container justifyContent='center' style={{marginTop:'1rem'}}>
           <Grid item xs={11} md={8} lg={4}>
             <ToDoForm addToDo={addToDo}/>
             <ToDoList todos={todos} />
