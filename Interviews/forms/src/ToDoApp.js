@@ -2,6 +2,7 @@ import React, { useState }from "react";
 import "./ToDoApp.css";
 import { Typography, Paper, AppBar, Toolbar, Grid } from '@material-ui/core';
 import ToDoList from './ToDoList';
+import ToDoForm from './ToDoForm';
 
 export default function ToDoApp (){
   const initialToDos = [
@@ -26,6 +27,7 @@ export default function ToDoApp (){
         </Toolbar>
       </AppBar>
       <div className='Spacer'>
+        <ToDoForm test='Test'/>
         <ToDoList todos={initialToDos} />
       </div>
     </Paper>

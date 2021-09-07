@@ -5,8 +5,15 @@ export default function ToDoList(props) {
   return(
     <Paper>
       <List>
-        {props.todos.map(td => <ListItem>{td.task}</ListItem>)}
+        {props.todos.map(td =>
+            <>
+            <ListItem>{td.task}</ListItem>
+            <Divider/>
+            </>
+            )
+        }
       </List>
+
     </Paper>
   );
 }
