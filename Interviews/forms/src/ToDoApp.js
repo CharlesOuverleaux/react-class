@@ -1,6 +1,6 @@
 import React, { useState }from "react";
 import "./ToDoApp.css";
-import { Typography, Paper, AppBar, Toolbar } from '@material-ui/core';
+import { Typography, Paper, AppBar, Toolbar, Grid } from '@material-ui/core';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
 
@@ -32,8 +32,12 @@ export default function ToDoApp (){
         </Toolbar>
       </AppBar>
       <div className='Spacer'>
-        <ToDoForm addToDo={addToDo}/>
-        <ToDoList todos={todos} />
+        <Grid container justify='center' style={{marginTop:'1rem'}}>
+          <Grid item xs={11} md={8} lg={4}>
+            <ToDoForm addToDo={addToDo}/>
+            <ToDoList todos={todos} />
+          </Grid>
+        </Grid>
       </div>
     </Paper>
   );
