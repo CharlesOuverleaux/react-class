@@ -20,6 +20,12 @@ export default function ToDoApp (){
     setToDos(updatedToDo);
   }
 
+  const toggleToDo = toDoId => {
+    const updatedToDo = todos.map(todo =>
+      todo.id === toDoId ? {...todo, complete: !todo.complete} : todo)
+    setToDos(updatedToDo);
+  }
+
   return(
     <Paper
       style={{
@@ -40,7 +46,7 @@ export default function ToDoApp (){
         <Grid container justifyContent='center' style={{marginTop:'1rem'}}>
           <Grid item xs={11} md={8} lg={4}>
             <ToDoForm addToDo={addToDo}/>
-            <ToDoList todos={todos} remove={removeToDo}/>
+            <ToDoList todos={todos} remove={removeToDo} toggle={toggleToDo}/>
           </Grid>
         </Grid>
       </div>
