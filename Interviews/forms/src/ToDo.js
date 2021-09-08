@@ -19,7 +19,7 @@ function ToDo(props){
       <EditToDoForm todo={td} editToDo={props.editToDo} toggleEdit={toggle}/>
       </>
   return(
-    <ListItem>
+    <ListItem style={{height: '64px'}}>
       {isEditing ? Editing : notEditing }
       <ListItemSecondaryAction>
         <IconButton onClick={toggle}>
