@@ -19,15 +19,7 @@ export default function ToDoApp (){
   }, [todos]);
 
   return(
-    <Paper
-      style={{
-        padding: 0,
-        margin: 0,
-        height: '100vh',
-        backgroundColor: '#fafafa'
-      }}
-      elevation={0}
-      >
+    <Paper className='Paper' elevation={0}>
       <AppBar>
         <Toolbar color='primary' position='static' style={{ height:'64px'}}>
           <PlaylistAddCheckIcon></PlaylistAddCheckIcon>

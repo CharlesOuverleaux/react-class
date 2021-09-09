@@ -1,3 +1,10 @@
-.Spacer{
+.Spacer {
   margin-top: 64px;
+}
+
+.Paper {
+  padding: 0;
+  margin: 0;
+  height: '100vh';
+  background-color: '#fafafa'
 }
