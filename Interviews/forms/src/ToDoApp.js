@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useState, useEffect}from "react";
 import "./ToDoApp.css";
 import { Typography, Paper, AppBar, Toolbar, Grid } from '@material-ui/core';
 import ToDoList from './ToDoList';
@@ -8,8 +8,16 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 export default function ToDoApp (){
-  const initialToDos = []
+  // Grab the todos stored on local storage
+  const initialToDos = JSON.parse(window.localStorage.getItem("todos") || "[]");
   const [todos, setToDos] = useState(initialToDos);
+  // Anytime this component (ToDoApp) will render, useEffect (equiv. componentDidUpdate) will run
+  // since we pass it a function, this function will run after every render
+  // we will specify that it should render only after a change in todos (18)
+  useEffect(() => {
+    console.log("synching with storage");
+    window.localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addToDo = newToDoText => {
     setToDos([...todos, { id: uuidv4(), task: newToDoText, complete: false}]);

@@ -3,7 +3,9 @@ import { Paper, List, Divider } from "@material-ui/core";
 import ToDo from "./ToDo";
 
 export default function ToDoList(props) {
-  return(
+  // if there are no todos, we do not display anything and return null
+  // have to return null otherwise react throws an err
+  if (props.todos.length) {return(
     <Paper>
       <List>
         {props.todos.map((td, i) =>
@@ -16,5 +18,6 @@ export default function ToDoList(props) {
       </List>
 
     </Paper>
-  );
+  );}
+    return null
 }
