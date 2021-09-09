@@ -1,4 +1,4 @@
-import { Checkbox, ListItem, ListItemIcon, ListItemText, IconButton, ListItemSecondaryAction } from "@material-ui/core";
+import { Checkbox, ListItem, ListItemText, IconButton, ListItemSecondaryAction } from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import "./ToDo.css";

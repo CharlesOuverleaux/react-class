@@ -9,10 +9,10 @@ export default function ToDoList(props) {
     <Paper>
       <List>
         {props.todos.map((td, i) =>
-          <>
-          <ToDo todo={td} key={td.id} id={td.id} remove={props.remove} toggle={props.toggle} editToDo={props.editToDo}/>
-          {i < props.todos.length - 1 && <Divider />}
-          </>
+          <span key={td.id}>
+            <ToDo todo={td} key={td.id} id={td.id} remove={props.remove} toggle={props.toggle} editToDo={props.editToDo}/>
+            {i < props.todos.length - 1 && <Divider />}
+          </span>
             )
         }
       </List>
