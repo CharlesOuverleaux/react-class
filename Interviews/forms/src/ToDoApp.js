@@ -6,17 +6,11 @@ import ToDoForm from './ToDoForm';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import useToDoState from "./hooks/useToDoState";
 
-
 export default function ToDoApp (){
   // Grab the todos stored on local storage
   const initialToDos = JSON.parse(window.localStorage.getItem("todos") || "[]");
   // Grad CRUD from hooks
   const {todos, addToDo, removeToDo, toggleToDo, editToDo} = useToDoState(initialToDos);
-  // sync w localStorage
-  useEffect(() => {
-    console.log("synching with storage");
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   return(
     <Paper className='Paper' elevation={0}>
