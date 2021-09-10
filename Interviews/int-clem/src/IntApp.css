@@ -1,0 +1,13 @@
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+
+thead {
+  border: 4px solid purple;
+}
+
+tr {
+  border: 1px solid purple;
+}
