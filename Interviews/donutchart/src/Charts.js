@@ -28,7 +28,7 @@ export default function Charts() {
   console.log(data);
   return (
     <div className='Charts'>
-      {data.profiles.map(i => <DonutChart title={i.title} />)}
+      {data.profiles.map(i => <DonutChart data={i} />)}
     </div>
   );
 }
