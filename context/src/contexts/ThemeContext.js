@@ -1,6 +1,6 @@
 import React, { createContext, Component }  from "react";
 
-// we can add a default val but not necessary
+// we can add a default val in create Context but not necessary
 export const ThemeContext = createContext();
 
 export class ThemeProvider extends Component {
