@@ -1,10 +1,10 @@
 import './App.css';
-import DonutChart from './DonutChart';
+import Charts from './Charts';
 
 function App() {
   return (
     <div className="App">
-      <DonutChart />
+      <Charts />
     </div>
   );
 }
