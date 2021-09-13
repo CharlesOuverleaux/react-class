@@ -1,10 +1,9 @@
 import './App.css';
-import TwitterDash from './TwitterDash';
 
 function App() {
   return (
     <div className="App">
-      <TwitterDash />
+      <h1>Scraper</h1>
     </div>
   );
 }
