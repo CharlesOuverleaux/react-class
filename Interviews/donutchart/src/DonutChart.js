@@ -31,7 +31,7 @@ export default function DonutChart(props){
                 show: true,
                 showAlways: true,
                 label: props.data.totalData,
-                fontSize: '22px',
+                fontSize: '28px',
                 fontWeight: 'bold',
                 formatter: () => `${props.data.totalLabel}`
               }
@@ -39,7 +39,42 @@ export default function DonutChart(props){
           }
         }
       },
-      colors: ['#f72585', '#4cc9f0', '#560bad']
+      colors: ['#f72585', '#4cc9f0', '#560bad'],
+      chart: {
+        toolbar: {
+          show: true,
+          offsetX: 0,
+          offsetY: 0,
+          tools: {
+            download: true,
+            selection: true,
+            zoom: true,
+            zoomin: true,
+            zoomout: true,
+            pan: true,
+            reset: true | '<img src="/static/icons/reset.png" width="20">',
+            customIcons: []
+          },
+          export: {
+            csv: {
+              filename: undefined,
+              columnDelimiter: ',',
+              headerCategory: 'category',
+              headerValue: 'value',
+              dateFormatter(timestamp) {
+                return new Date(timestamp).toDateString()
+              }
+            },
+            svg: {
+              filename: undefined,
+            },
+            png: {
+              filename: undefined,
+            }
+          },
+          autoSelected: 'zoom'
+        },
+      }
       }
     }
   return (
