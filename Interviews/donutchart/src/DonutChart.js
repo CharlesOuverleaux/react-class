@@ -16,10 +16,10 @@ export default function DonutChart(props){
         offsetY: 0,
         floating: false,
         style: {
-          fontSize: '14px',
+          fontSize: '22px',
           fontWeight: 'bold',
           fontFamily: undefined,
-          color: '#263238'
+          color: '#263238',
         }
       },
       plotOptions: {
@@ -31,14 +31,15 @@ export default function DonutChart(props){
                 show: true,
                 showAlways: true,
                 label: props.data.totalData,
-                fontSize: '15px',
+                fontSize: '22px',
                 fontWeight: 'bold',
                 formatter: () => `${props.data.totalLabel}`
               }
             }
           }
         }
-      }
+      },
+      colors: ['#f72585', '#4cc9f0', '#560bad']
       }
     }
   return (
