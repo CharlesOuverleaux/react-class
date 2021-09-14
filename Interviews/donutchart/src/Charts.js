@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DonutChart from "./DonutChart";
+import "./Charts.css";
 
 export default function Charts() {
   const [data, setData] = useState({profiles: []});
