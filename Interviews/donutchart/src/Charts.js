@@ -4,7 +4,7 @@ import DonutChart from "./DonutChart";
 export default function Charts() {
   const [data, setData] = useState({profiles: []});
   async function getData () {
-    const myData = await fetch('data.json'
+    await fetch('data.json'
       , {
         headers: {
           'Content-Type': 'application/json',

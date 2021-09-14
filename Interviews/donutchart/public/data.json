@@ -3,6 +3,7 @@
     {
       "title": "Gender",
       "totalLabel": "Total Users",
+      "totalData": 12350,
       "data": [
         {
           "label": "Female",
@@ -21,6 +22,7 @@
     {
       "title": "Age Range",
       "totalLabel": "Total Users",
+      "totalData": 10550,
       "data": [
         {
           "label": "Below 25",
@@ -39,6 +41,7 @@
     {
       "title": "Country",
       "totalLabel": "Total Users",
+      "totalData": 12550,
       "data": [
         {
           "label": "Costa Rica",
