@@ -1,24 +1,13 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
+import CounterState from './CounterState';
+import CounterReduce from './CounterReduce';
 
-function App() {
-  // defining state count to 0
-  const[count, setCount] = useState(0);
-  // adding call back to increment count
-  const handleClickIncrement = () => {
-    setCount(count + 1);
-  }
-  const handleClickDecrement = () => {
-    if (count >= 1) { setCount(count - 1)}
-    else { alert('Count can not be lower than 0')}
-  }
+export default function App() {
   return (
     <div className="App">
-      <h1>Counter: {count} </h1>
-      <button onClick={handleClickIncrement}>Add 1</button>
-      <button onClick={handleClickDecrement}>Remove 1</button>
+      <CounterState />
+      <CounterReduce />
     </div>
   );
 }
-
-export default App;
