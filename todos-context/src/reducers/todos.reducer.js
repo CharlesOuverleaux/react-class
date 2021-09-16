@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     case "TOGGLE":
       return state.map(todo => todo.id === action.id ? { ...todo, completed: !todo.completed } : todo);
     case "EDIT":
-      return state.map(todo => todo.id === action.id ? { ...todo, task: action.task } : todo);
+      return state.map(todo => todo.id === action.id ? { ...todo, task: action.newTask } : todo);
     default:
       return state;
   }
