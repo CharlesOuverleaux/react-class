@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import useToggleState from "./hooks/useToggleState";
 import EditTodoForm from "./EditTodoForm";
 import ListItem from "@material-ui/core/ListItem";
@@ -13,7 +13,7 @@ import { DispatchContext } from "./contexts/todos.context";
 function Todo({ id, task, completed }) {
   const [isEditing, toggle] = useToggleState(false);
   const dispatch = useContext(DispatchContext);
-  console.log("TODO");
+  console.log(`TODO ${id}`);
   return (
     <ListItem style={{ height: "64px" }}>
       {isEditing ? (
@@ -48,4 +48,4 @@ function Todo({ id, task, completed }) {
   );
 }
 
-export default Todo;
+export default memo(Todo);
