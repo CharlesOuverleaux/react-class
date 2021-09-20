@@ -13,7 +13,7 @@ import { DispatchContext } from "./contexts/todos.context";
 function Todo({ id, task, completed }) {
   const [isEditing, toggle] = useToggleState(false);
   const dispatch = useContext(DispatchContext);
-  console.log(`TODO ${id}`);
+  // console.log(`TODO ${id}`);
   return (
     <ListItem style={{ height: "64px" }}>
       {isEditing ? (
@@ -47,5 +47,5 @@ function Todo({ id, task, completed }) {
     </ListItem>
   );
 }
-
+// powerful, tks to memo we only re-render the todo that has a change
 export default memo(Todo);
