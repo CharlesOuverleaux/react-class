@@ -1,25 +1,22 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React from 'react';
+import styles from '../styles/Home.module.css';
+import axios from 'axios';
 
-export default function Home() {
+export async function getStaticProps() {
+  const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  const { data } = res;
+  return {
+    props: {data}
+  }
+}
+
+export default function Home({data}) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>First OS API</title>
-        <meta name="description" content="An OpenSea API" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          OpenSea API
-        </h1>
-      </main>
-
-      <footer className={styles.footer}>
-        <p>Contact us</p>
-      </footer>
+      <h1>Hello</h1>
+        <ol className='List'>
+        {data.map(i => <li key={i.id}>{i.title}</li>)}
+        </ol>
     </div>
   )
 }
