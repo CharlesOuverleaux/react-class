@@ -1,0 +1,9 @@
+.NavBar{
+  background-color: rebeccapurple;
+  color: white;
+  text-align: center;
+}
+
+.NavBar a {
+  color: white;
+}
