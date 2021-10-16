@@ -2,8 +2,7 @@
   text-align: center;
 }
 
-.coin-container {
+table {
   width: 80%;
   margin: 0 auto;
-  display: grid;
 }
