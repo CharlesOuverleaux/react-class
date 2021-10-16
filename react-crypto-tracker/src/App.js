@@ -13,7 +13,25 @@ function App() {
   return (
     <div className="App">
       <h1>Crypto-Tracker</h1>
-        {coins.map(coin => <Coin key={coin.id}coin={coin}/>)}
+      <table>
+        <thead>
+          <tr>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>24h change</th>
+            <th>ATH</th>
+            <th>Market cap</th>
+            <th>Total volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          {coins.map(coin => <Coin key={coin.id} coin={coin} />)}
+        </tbody>
+      </table>
+
+
     </div>
   );
 }
