@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Coin from './Coin';
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -12,9 +13,7 @@ function App() {
   return (
     <div className="App">
       <h1>Crypto-Tracker</h1>
-        <ul>
-          {coins.map(coin => <li>{coin.id}</li>)}
-        </ul>
+        {coins.map(coin => <Coin key={coin.id}coin={coin}/>)}
     </div>
   );
 }
