@@ -3,6 +3,7 @@ import './Coin.css';
 function Coin(props) {
   const coin = props.coin;
   const priceChange = coin.price_change_percentage_24h;
+
   return(
     <tr className="coin-row">
       <td> <img alt={coin.id} src={coin.image} /> </td>
