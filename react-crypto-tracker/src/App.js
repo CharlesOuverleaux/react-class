@@ -1,8 +1,9 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
-import CoinDashboard from './CoinDashboard';
-import Nft from './Nft';
-import Home from './Home';
+import CoinDashboard from './components/CoinDashboard';
+import Nft from './components/Nft';
+import Home from './components/Home';
+import FormListing from './components/FormListing';
 
 function App() {
   return(
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="coins-dashboard" element={<CoinDashboard />} />
         <Route path="nfts" element={<Nft />} />
+        <Route path="nfts/list" element={<FormListing />} />
       </Routes>
     </div>
   )
