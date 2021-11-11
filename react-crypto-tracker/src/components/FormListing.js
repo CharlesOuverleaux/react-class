@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import './FormListing.css';
 
 
 export default function FormListing() {
@@ -7,7 +8,7 @@ export default function FormListing() {
     <div className='FormListing'>
       <h1>I'm a form</h1>
       <Formik
-        initialValues={{ email: ''}}
+        initialValues={{ email: '', password: ''}}
         validate={values => {
           const errors = {};
           if (!values.email) {
@@ -27,7 +28,7 @@ export default function FormListing() {
         }}
       >
         {({ isSubmitting }) => (
-          <Form>
+          <Form id='FormListing'>
             <label htmlFor='email'>Email</label>
             <Field type="email" name="email" />
             <ErrorMessage name="email" component="div" />
@@ -55,6 +56,14 @@ export default function FormListing() {
             <label htmlFor='contractAddress'>Collection Contract Address</label>
             <Field type="text" name="contractAddress" />
             <ErrorMessage name="contractAddress" component="div" />
+
+            <label htmlFor='launchDate'>Launch Date</label>
+            <Field type="text" name="launchDate" />
+            <ErrorMessage name="launchDate" component="div" />
+
+            <label htmlFor='mintPrice'>Mint Price</label>
+            <Field type="text" name="mintPrice" />
+            <ErrorMessage name="mintPrice" component="div" />
 
             <button type="submit" disabled={isSubmitting}>
               Submit
