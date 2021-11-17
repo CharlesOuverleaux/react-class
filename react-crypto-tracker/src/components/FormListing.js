@@ -37,7 +37,7 @@ export default function FormListing() {
             <Field type="text" name="projectName" />
             <ErrorMessage name="projectName" component="div" />
 
-            <label htmlFor='openseaLink'>Opensea Link</label>
+            {/* <label htmlFor='openseaLink'>Opensea Link</label>
             <Field type="text" name="openseaLink" />
             <ErrorMessage name="openseaLink" component="div" />
 
@@ -63,7 +63,7 @@ export default function FormListing() {
 
             <label htmlFor='mintPrice'>Mint Price</label>
             <Field type="text" name="mintPrice" />
-            <ErrorMessage name="mintPrice" component="div" />
+            <ErrorMessage name="mintPrice" component="div" /> */}
 
             <button type="submit" disabled={isSubmitting}>
               Submit

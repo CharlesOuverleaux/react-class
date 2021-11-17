@@ -8,7 +8,7 @@ export default function Home(){
       <nav>
         <Link to="/nfts">Top NFT's</Link>
         <Link to="/nfts/launches">Newest Collections</Link>
-        <Link to="/nfts/launches/add">List your project</Link>
+        <Link to="/nfts/list">List your project</Link>
         <Link to="/coins-dashboard">Crypto Dashboard</Link>
       </nav>
     </div>
