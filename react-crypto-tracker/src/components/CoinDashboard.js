@@ -24,12 +24,10 @@ export default function CoinDashboard() {
     <div className="App">
       <h1>Crypto-Tracker</h1>
       <div>
-        <h2>Search a crypto</h2>
-        <form>
+        <form id='FormSearch'>
           <label>
             <input type="text" placeholder="Search" onChange={handleChange} />
           </label>
-          <input type="submit" value="Submit" />
         </form>
       </div>
       <table>
