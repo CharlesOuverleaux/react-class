@@ -27,13 +27,9 @@ export default function CoinDashboard() {
         <h2>Search a crypto</h2>
         <form>
           <label>
-            <input
-              type='text'
-              placeholder='Search'
-              onChange={handleChange}
-            />
+            <input type="text" placeholder="Search" onChange={handleChange} />
           </label>
-          <input type='submit' value='Submit' />
+          <input type="submit" value="Submit" />
         </form>
       </div>
       <table>
@@ -50,7 +46,9 @@ export default function CoinDashboard() {
           </tr>
         </thead>
         <tbody>
-          {coins.map(coin => <Coin key={coin.id} coin={coin} />)}
+          {filteredCoins.map((coin) => (
+            <Coin key={coin.id} coin={coin} />
+          ))}
         </tbody>
       </table>
     </div>
