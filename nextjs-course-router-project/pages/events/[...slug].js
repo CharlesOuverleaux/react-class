@@ -7,7 +7,7 @@ export default function EventSlugPage() {
     <div>
       <ul>
         {inputs &&
-          inputs.map(input => <li>{input}</li>)
+          inputs.map(input => <li key={input}>{input}</li>)
         }
       </ul>
     </div>
