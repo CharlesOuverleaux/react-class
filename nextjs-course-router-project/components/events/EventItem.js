@@ -10,10 +10,10 @@ export default function EventItem(props) {
   const formattedAddress = location.replace(",", "\n");
   const explorePath = `events/${id}`;
   return (
-    <li key={id} className="shadow-xl my-4 p-2 rounded-lg bg-white">
-      <div className="flex">
+    <li key={id} className="shadow-xl my-4 py-2 rounded-lg bg-white">
+      <div className="flex p-2">
         <img
-          className="object-cover h-20 w-20 p-2 rounded-full"
+          className="object-cover h-20 w-20 rounded-full shadow-2xl"
           src={userPicture}
           alt="userPicture"
         />
@@ -31,10 +31,10 @@ export default function EventItem(props) {
         <h2 className="text-2xl font-bold">{title}</h2>
         <p className="text-slate-600">{description}</p>
         <div className="flex justify-center">
-          <Link href="/">
-            <button className="mt-4 bg-blue-500 shadow-lg rounded-lg shadow-blue-500/50 text-white p-4">
+          <Link href={explorePath}>
+            <a className="mt-4 bg-blue-500 shadow-lg rounded-lg shadow-blue-500/50 text-white p-4">
               Explore event
-            </button>
+            </a>
           </Link>
         </div>
       </div>

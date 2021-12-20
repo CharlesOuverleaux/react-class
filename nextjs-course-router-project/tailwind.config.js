@@ -4,6 +4,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./components/events/**/*.{js,ts,jsx,tsx}",
   ],
+  mode: 'jit',
   theme: {
     extend: {},
   },
