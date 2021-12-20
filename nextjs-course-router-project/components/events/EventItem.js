@@ -10,7 +10,7 @@ export default function EventItem(props) {
   const formattedAddress = location.replace(",", "\n");
   const explorePath = `events/${id}`;
   return (
-    <li key={id}>
+    <li key={id} className="shadow-xl my-4 p-2 rounded-lg bg-white">
       <div className="flex">
         <img
           className="object-cover h-20 w-20 p-2 rounded-full"
@@ -19,19 +19,24 @@ export default function EventItem(props) {
         />
         <div className="UserInfo p-2">
           <div className="font-bold">{userName}</div>
-          <div className="text-slate-500">{readableDate}</div>
+          <div className="text-slate-500">
+            {formattedAddress} on {readableDate}
+          </div>
         </div>
       </div>
       <div className="EventBanner">
-        <img src={image} alt={title} className="" />
+        <img src={image} alt={title} />
       </div>
-      <div className="EventContent">
-        <h2>{title}</h2>
-        <p>{readableDate}</p>
-        <p>{description}</p>
-        <Link href="/">
-          <a>Explore event</a>
-        </Link>
+      <div className="EventContent p-4">
+        <h2 className="text-2xl font-bold">{title}</h2>
+        <p className="text-slate-600">{description}</p>
+        <div className="flex justify-center">
+          <Link href="/">
+            <button className="mt-4 bg-blue-500 shadow-lg rounded-lg shadow-blue-500/50 text-white p-4">
+              Explore event
+            </button>
+          </Link>
+        </div>
       </div>
     </li>
   );
