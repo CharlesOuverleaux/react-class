@@ -8,6 +8,8 @@ const DUMMY_EVENTS = [
     date: "2021-05-12",
     image: "images/nft-intro.jpg",
     isFeatured: false,
+    userPicture: "images/pug-1.jpg",
+    userName: "Pugba",
   },
   {
     id: "e2",
@@ -18,6 +20,8 @@ const DUMMY_EVENTS = [
     date: "2021-05-30",
     image: "images/nft-sport.jpg",
     isFeatured: true,
+    userPicture: "images/pug-2.jpg",
+    userName: "Pugsly",
   },
   {
     id: "e3",
@@ -28,6 +32,8 @@ const DUMMY_EVENTS = [
     date: "2022-04-10",
     image: "images/nft-beeple.jpg",
     isFeatured: true,
+    userPicture: "images/pug-3.jpg",
+    userName: "Pugzilla",
   },
 ];
 
