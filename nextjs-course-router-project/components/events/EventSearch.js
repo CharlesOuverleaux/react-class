@@ -1,14 +1,14 @@
 export default function EventSearch(props){
   return (
     <form className="flex justify-center rounded-lg bg-white p-2">
-      <div className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      <div className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded-lg">
         <label htmlFor="year">Year</label>
         <select id="year">
           <option value="2021">2021</option>
           <option value="2022">2022</option>
         </select>
       </div>
-      <div className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      <div className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded-lg">
         <label htmlFor="month">Month</label>
         <select id="month">
           <option value="1">January</option>
