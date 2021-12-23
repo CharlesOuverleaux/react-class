@@ -53,7 +53,7 @@ const DUMMY_EVENTS = [
     description:
       "Remember collecting baseball, basketball and football cards? Let's see what the next generation is up to.",
     location: "Puglia",
-    date: "2021-05-30",
+    date: "2021-06-30",
     image: "/images/nft-sport.jpg",
     isFeatured: false,
     userPicture: "/images/pug-2.jpg",
@@ -65,7 +65,7 @@ const DUMMY_EVENTS = [
     description:
       "Beeple is Mike Winkelmann, a graphic designer from Charleston, SC, USA who does a variety of digital artwork including short films, Creative Commons VJ loops, everydays and VR / AR work. After he began releasing a set of widely used Creative Commons VJ loops he has worked on concert visuals for Justin Bieber, One Direction, Katy Perry, Nicki Minaj, Eminem, Zedd, deadmau5 and many more. One of the originators of the current everyday movement in 3D graphics he has been creating a picture everyday from start to finish and posting it online for over ten years without missing a single day.",
     location: "The City of Bones",
-    date: "2022-04-10",
+    date: "2022-07-10",
     image: "/images/nft-beeple.jpg",
     isFeatured: false,
     userPicture: "/images/pug-3.jpg",
