@@ -36,7 +36,7 @@ const DUMMY_EVENTS = [
     userName: "Pugzilla",
   },
   {
-    id: "e3",
+    id: "e4",
     title: "NFT Introduction",
     description:
       "Everyone can learn about NFT's! Yes, everyone! In this live event, we are going to go through all the key basics and get you started with NFT's as well.",
