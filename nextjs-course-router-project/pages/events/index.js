@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 export default function EventsPage(props) {
   const { events } = props;
   const router = useRouter();
+
   function findEventsHandler(year, month){
     const fullPath = `/events/${year}/${month}`
     router.push(fullPath);

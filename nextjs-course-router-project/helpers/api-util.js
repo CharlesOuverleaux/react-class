@@ -7,8 +7,8 @@ export async function getAllEvents(){
       id: key,
       ...data[key]
     });
-  return events;
   }
+  return events;
 }
 
 export async function getFeaturedEvents() {
