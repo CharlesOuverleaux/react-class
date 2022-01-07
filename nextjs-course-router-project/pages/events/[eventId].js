@@ -6,7 +6,7 @@ export default function EventIdPage(props) {
 
   // in case event does not exist
   if (!event) {
-    return <p>Sorry, no event found</p>
+    return <p>No events found</p>
   }
   return (
     <div>
@@ -36,6 +36,7 @@ export async function getStaticProps(context){
   return {
     props: {
       event: event
-    }
+    },
+    revalidate: 30
   }
 }
