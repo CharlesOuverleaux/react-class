@@ -1,37 +1,76 @@
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { getFilteredEvents } from "../../dummy-data";
+import useSWR from "swr";
 import EventList from "../../components/events/EventList";
-import EventSearch from "../../components/events/EventSearch";
 
-export default function EventSlugPage() {
+
+function FilteredEventsPage() {
+  const [loadedEvents, setLoadedEvents] = useState();
   const router = useRouter();
-  const filterData = router.query.slug
 
-  if (!filterData) {
-    return <p className="content-center">Loading ... </p>;
+  const filterData = router.query.slug;
+  const link = "https://nextjs-datafetching-fb72b-default-rtdb.europe-west1.firebasedatabase.app/events.json";
+
+  // see SWR docs
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, error } = useSWR(link, fetcher);
+
+  useEffect(() => {
+    if (data) {
+      const events = [];
+
+      for (const key in data) {
+        events.push({
+          id: key,
+          ...data[key],
+        });
+      }
+
+      setLoadedEvents(events);
+    }
+  }, [data]);
+
+  if (!loadedEvents) {
+    return <p>Loading...</p>;
   }
 
   const filteredYear = filterData[0];
   const filteredMonth = filterData[1];
-  // + converts string to data
+
   const numYear = +filteredYear;
   const numMonth = +filteredMonth;
 
-  if(isNaN(numYear) || isNaN(numMonth) || numYear > 2030 || numMonth < 1) {
-    return <p>Invalid filter, please use the input fields</p>
+  if (
+    isNaN(numYear) ||
+    isNaN(numMonth) ||
+    numYear > 2030 ||
+    numYear < 2021 ||
+    numMonth < 1 ||
+    numMonth > 12 ||
+    error
+  ) {
+    return (
+          <p>Invalid filter. Please adjust your values!</p>
+    );
   }
 
-  const filteredEvents = getFilteredEvents({
-    year: numYear,
-    month: numMonth,
-  })
+  const filteredEvents = loadedEvents.filter((event) => {
+    const eventDate = new Date(event.date);
+    return (
+      eventDate.getFullYear() === numYear &&
+      eventDate.getMonth() === numMonth - 1
+    );
+  });
 
-  if(!filteredEvents || filteredEvents.length === 0){
-    return <p>No events found, please adapt your search</p>
+  if (!filteredEvents || filteredEvents.length === 0) {
+    return (
+      <p>No events found for the chosen filter!</p>
+    );
   }
+
   return (
-    <div>
-      <EventList items={filteredEvents}/>
-    </div>
+      <EventList items={filteredEvents} />
   );
 }
+
+export default FilteredEventsPage;

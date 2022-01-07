@@ -4,7 +4,7 @@ import EventSearch from "../../components/events/EventSearch";
 import { useRouter } from "next/router";
 
 export default function EventsPage(props) {
-  const events = props.events;
+  const { events } = props;
   const router = useRouter();
   function findEventsHandler(year, month){
     const fullPath = `/events/${year}/${month}`
@@ -25,6 +25,6 @@ export async function getStaticProps(){
     props: {
       events: events,
     },
-    revalidate: 1800,
+    revalidate: 60,
   };
 }
