@@ -1,11 +1,8 @@
-import { useRouter } from "next/router";
 import EventDetails from "../../components/events/EventDetails";
-import { getEventById } from "../../dummy-data";
+import { getEventById, getAllEvents } from "../../helpers/api-util";
 
-export default function EventIdPage() {
-  const router = useRouter();
-  const eventId = router.query.eventId;
-  const event = getEventById(eventId);
+export default function EventIdPage(props) {
+  const event = props.event;
 
   // in case event does not exist
   if (!event) {
@@ -16,4 +13,29 @@ export default function EventIdPage() {
       <EventDetails event={event}/>
     </div>
   );
+}
+
+// because its a dynamic page, there could be an inf amount of pages to load
+// we need to tell next which ones to load, we use getStaticPaths to choose which to pre-generate
+// Reminder: fallback needed to let next know if there are more ids that will come
+// here false, as we load all events (no new ones possible)
+
+export async function getStaticPaths(){
+  const events = await getAllEvents();
+  const paths = events.map(event => ({params: {eventId: event.id}}));
+
+  return {
+    paths: paths,
+    fallback: false
+  }
+}
+
+export async function getStaticProps(context){
+  const eventId = context.params.eventId;
+  const event = await getEventById(eventId);
+  return {
+    props: {
+      event: event
+    }
+  }
 }
