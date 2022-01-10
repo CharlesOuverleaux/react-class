@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function EventDetails(props) {
   const {
@@ -21,14 +22,18 @@ export default function EventDetails(props) {
   return (
     <div className="shadow-xl my-4 py-2 rounded-lg bg-white">
       <div className="EventBanner">
-        <img src={image} alt={title} />
+        <Image src={image} alt={title} width={1200} height={1200} />
       </div>
       <div className="flex justify-center relative mb-10">
-        <img
-          className="object-cover h-20 w-20 rounded-full shadow-2xl absolute -top-12"
-          src={userPicture}
-          alt="userPicture"
-        />
+        <div className="absolute -top-10">
+          <Image
+            className="object-cover h-20 w-20 rounded-full shadow-md"
+            src={userPicture}
+            alt="userPicture"
+            width={100}
+            height={100}
+          />
+        </div>
       </div>
       <div className="EventContent p-4">
         <h2 className="text-2xl font-bold mb-2">{title}</h2>
