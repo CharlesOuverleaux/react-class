@@ -6,7 +6,7 @@ export default function HomePage(props){
   return (
     <div>
       <Head>
-        <title>NFT events</title>
+        <title>NFT featured events</title>
         <meta name='description' content='Find all NFT related events in your city'/>
       </Head>
       <EventList items={props.events} />

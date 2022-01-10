@@ -1,5 +1,6 @@
 import EventDetails from "../../components/events/EventDetails";
 import { getEventById, getAllEvents } from "../../helpers/api-util";
+import Head from 'next/head';
 
 export default function EventIdPage(props) {
   const event = props.event;
@@ -10,7 +11,14 @@ export default function EventIdPage(props) {
   }
   return (
     <div>
-      <EventDetails event={event}/>
+      <Head>
+        <title>NFT event details</title>
+        <meta
+          name="description"
+          content="NFT event"
+        />
+      </Head>
+      <EventDetails event={event} />
     </div>
   );
 }
