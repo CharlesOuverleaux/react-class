@@ -1,9 +1,16 @@
 import { getFeaturedEvents } from "../helpers/api-util";
 import EventList from "../components/events/EventList";
+import Head from 'next/head';
 
 export default function HomePage(props){
   return (
-    <EventList items={props.events} />
+    <div>
+      <Head>
+        <title>NFT events</title>
+        <meta name='description' content='Find all NFT related events in your city'/>
+      </Head>
+      <EventList items={props.events} />
+    </div>
   );
 }
 
