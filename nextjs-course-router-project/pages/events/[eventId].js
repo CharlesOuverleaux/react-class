@@ -12,7 +12,7 @@ export default function EventIdPage(props) {
   return (
     <div>
       <Head>
-        <title>NFT event details</title>
+        <title>NFT event details: {event.title}</title>
         <meta
           name="description"
           content="NFT event"
