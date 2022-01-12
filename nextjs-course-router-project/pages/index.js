@@ -1,9 +1,10 @@
 import { getFeaturedEvents } from "../helpers/api-util";
 import EventList from "../components/events/EventList";
 import Head from 'next/head';
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function HomePage(props){
+  const [ feedbackItems, setFeedbackItems ] = useState([]);
   const emailInputRef = useRef();
   const feedbackInputRef = useRef();
 
@@ -26,6 +27,14 @@ export default function HomePage(props){
       .then((data) => console.log(data));
   }
 
+  function loadFeedbackHandler(){
+    fetch("/api/feedback")
+      .then((response) => response.json())
+      .then((data) => {
+        setFeedbackItems(data.feedback);
+      });
+  }
+
   return (
     <div>
       <Head>
@@ -35,6 +44,7 @@ export default function HomePage(props){
           content="Find all NFT related events in your city"
         />
       </Head>
+      <EventList items={props.events} />
       <form onSubmit={submitFormHandler}>
         <div>
           <label htmlFor="email">Your email</label>
@@ -42,11 +52,19 @@ export default function HomePage(props){
         </div>
         <div>
           <label htmlFor="feedback">Your feedback</label>
-          <textarea type="text" row="5" id="feedback" ref={feedbackInputRef}></textarea>
+          <textarea
+            type="text"
+            row="5"
+            id="feedback"
+            ref={feedbackInputRef}
+          ></textarea>
         </div>
         <button>Send</button>
       </form>
-      <EventList items={props.events} />
+      <button onClick={loadFeedbackHandler}>Load Feedbacks</button>
+      <ul>
+        {feedbackItems.map(item => <li key={item.id}>{item.text}</li>)}
+      </ul>
     </div>
   );
 }
