@@ -6,12 +6,14 @@ export default function handler(request, response) {
     const email = request.body.email;
     const name = request.body.name;
     const text = request.body.text;
+    const eventId = request.body.eventId;
 
     const newComment = {
       id: new Date().toISOString(),
       email: email,
       name: name,
-      text: text
+      text: text,
+      eventId: eventId
     };
     const filePath = path.join(process.cwd(), "data", "comment.json");
     const fileData = fs.readFileSync(filePath);

@@ -18,7 +18,8 @@ function Comments(props) {
     const requestBody = {
       email: commentData.email,
       name: commentData.name,
-      text: commentData.text
+      text: commentData.text,
+      eventId: eventId
     };
     fetch('/api/comment', {
       method: 'POST',
