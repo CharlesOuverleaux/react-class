@@ -22,8 +22,6 @@ export default function handler(request, response) {
     fs.writeFileSync(filePath, JSON.stringify(data));
     response.status(201).json({ message: "success", comment: newComment });
   } else {
-    response
-      .status(200)
-      .json({ message: "successful request but only POST allowed so far" });
+    response.status(200).json({ message: "Sorry, only POST & GET"})
   }
 }
