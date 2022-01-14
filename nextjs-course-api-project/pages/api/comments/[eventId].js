@@ -1,16 +1,16 @@
 import { MongoClient } from "mongodb";
 
-async function connectDatabase(){
+async function connectDatabase() {
   const client = await MongoClient.connect(
     "mongodb+srv://charly:TestCharly@cluster0.cesdy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   );
   return client;
 }
 
-async function insertDocument(client, document){
-      const db = client.db();
-      const result = await db.collection("comments").insertOne(document);
-      return result;
+async function insertDocument(client, document) {
+  const db = client.db();
+  const result = await db.collection("comments").insertOne(document);
+  return result;
 }
 
 export default async function handler(request, response) {
