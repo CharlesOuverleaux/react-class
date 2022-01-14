@@ -38,9 +38,12 @@ export default async function handler(request, response) {
   }
   if (request.method === "GET") {
     try {
-      const documents = await getAllDocuments(client, "comments", {
-        _id: -1,
-      });
+      const documents = await getAllDocuments(
+        client,
+        "comments",
+        { _id: -1 },
+        { eventId: eventId }
+      );
       response.status(200).json({ comments: documents });
     } catch (error) {
       response
