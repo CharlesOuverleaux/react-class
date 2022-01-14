@@ -1,17 +1,4 @@
-import { MongoClient } from "mongodb";
-
-async function connectDatabase() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://charly:TestCharly@cluster0.cesdy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-  );
-  return client;
-}
-
-async function insertDocument(client, document) {
-  const db = client.db();
-  const result = await db.collection("comments").insertOne(document);
-  return result;
-}
+import { connectDatabase, insertDocument } from "../../../helpers/db-utils";
 
 export default async function handler(request, response) {
   const eventId = request.query.eventId;
@@ -26,7 +13,7 @@ export default async function handler(request, response) {
       text: text,
       eventId: eventId,
     };
-    const result = await insertDocument(client, newComment);
+    const result = await insertDocument(client, "comments", newComment);
     newComment.id = result.insertedId;
 
     response
