@@ -1,31 +1,46 @@
-import fs from "fs";
-import path from "path";
+import { MongoClient } from "mongodb";
 
-export default function handler(request, response) {
+async function connectDatabase(){
+  const client = await MongoClient.connect(
+    "mongodb+srv://charly:TestCharly@cluster0.cesdy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  );
+  return client;
+}
+
+async function insertDocument(client, document){
+      const db = client.db();
+      const result = await db.collection("comments").insertOne(document);
+      return result;
+}
+
+export default async function handler(request, response) {
   const eventId = request.query.eventId;
+
+  const client = await connectDatabase();
 
   if (request.method === "POST") {
     const { email, name, text } = request.body;
     const newComment = {
-      id: new Date().toISOString(),
       email: email,
       name: name,
-      text: text
+      text: text,
+      eventId: eventId,
     };
-    const filePath = path.join(process.cwd(), "data", "comments.json");
-    const fileData = fs.readFileSync(filePath);
-    const data = JSON.parse(fileData);
-    data.push(newComment);
-    fs.writeFileSync(filePath, JSON.stringify(data));
-    response.status(201).json({ message: "Added comment", comment: newComment });
-  }
-  if (request.method === "GET"){
-    const filePath = path.join(process.cwd(), "data", "comments.json");
-    const fileData = fs.readFileSync(filePath);
-    const data = JSON.parse(fileData);
-    response.status(200).json({ comments: data });
+    const result = await insertDocument(client, newComment);
+    newComment.id = result.insertedId;
 
-  } else {
-      console.log("Valid request but only POST & GET atm")
+    response
+      .status(201)
+      .json({ message: "Added comment", comment: newComment });
   }
+  if (request.method === "GET") {
+    const db = client.db();
+    const documents = await db
+      .collection("comments")
+      .find()
+      .sort({ _id: -1 })
+      .toArray();
+    response.status(200).json({ comments: documents });
+  }
+  client.close();
 }
