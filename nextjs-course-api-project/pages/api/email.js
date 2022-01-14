@@ -17,11 +17,27 @@ export default async function handler(request, response) {
   if (request.method === "POST") {
     const userEmail = request.body.email;
 
-    const client = await connectDatabase();
-    await insertDocument(client, "emails", {email: userEmail})
+    let client;
 
-    client.close();
+    try {
+      client = await connectDatabase();
+    } catch (error) {
+      response.status(500).json({ message: "Database connection failed" });
+      // in case of error we want to stop the code there
+      return;
+    }
 
-    response.status(201).json({ message: "Signed up successfully", email: userEmail });
+    try {
+      await insertDocument(client, "emails", { email: userEmail });
+      client.close();
+    } catch (error) {
+      response.status(500).json({ message: "Database insert failed" });
+      // in case of error we want to stop the code there
+      return;
+    }
+
+    response
+      .status(201)
+      .json({ message: "Signed up successfully", email: userEmail });
   }
 }
