@@ -13,7 +13,7 @@ class ProjectInput {
     // accessing the elements
     const importedNode = document.importNode(this.templateElement.content, true);
     this.element = importedNode.firstElementChild as HTMLFormElement;
-
+    this.element.id = 'user-input';
     // excuting the rendering
     this.attach();
   }
